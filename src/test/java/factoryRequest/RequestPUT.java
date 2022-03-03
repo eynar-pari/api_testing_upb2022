@@ -9,9 +9,7 @@ public class RequestPUT implements IRequest {
     public Response send(RequestInformation requestInformation) {
 
        Response response= given()
-                            .auth()
-                            .preemptive()
-                            .basic("upb_api@api.com","12345")
+                            .headers(requestInformation.getHeaders())
                             .body(requestInformation.getBody())
                             .log().all()
                           .when()

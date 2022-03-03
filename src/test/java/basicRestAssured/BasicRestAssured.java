@@ -26,9 +26,7 @@ public class BasicRestAssured {
     public void  createProject(){
 
         given()
-                .auth()
-                .preemptive()
-                .basic("upb_api@api.com","12345")
+                .header("Token","2a3f92f2200f4d2a8b61465f1680dff9")
                 .body("{\n" +
                         "  \"Content\":\"EynarRestAssured\",\n" +
                         "  \"Icon\":\"4\"\n" +

@@ -7,12 +7,9 @@ import static io.restassured.RestAssured.given;
 public class RequestGET implements IRequest {
     @Override
     public Response send(RequestInformation requestInformation) {
-
        Response response= given()
-                            .auth()
-                            .preemptive()
-                            .basic("upb_api@api.com","12345")
-                            .log().all()
+                          .headers(requestInformation.getHeaders())
+                          .log().all()
                           .when()
                             .get(requestInformation.getUrl());
 

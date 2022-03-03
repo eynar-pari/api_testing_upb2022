@@ -9,9 +9,7 @@ public class RequestDELETE implements IRequest {
     public Response send(RequestInformation requestInformation) {
 
        Response response= given()
-                            .auth()
-                            .preemptive()
-                            .basic("upb_api@api.com","12345")
+                            .headers(requestInformation.getHeaders())
                             .log().all()
                           .when()
                             .delete(requestInformation.getUrl());
